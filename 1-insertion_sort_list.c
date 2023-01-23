@@ -1,27 +1,45 @@
 #include "sort.h"
-
+/**
+*insertion_sort_list - sort list
+*
+*@list: list to sort
+*/
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current, *prev;
+	listint_t *current, *behind, *temp;
 
 	current = (*list)->next;
 
-	while (current && current->next)
+	while (current)
 	{
-		prev = current->prev;
+		behind = current->prev;
 
-		while (prev)
+		while (behind && behind->n > current->n)
 		{
-			if (prev->n > current->n)
+			if (behind->prev)
 			{
-				current->next->prev = prev;
-				prev->next = current->next;
-				current->next = prev;
-				current->prev = prev->prev;
-				prev->prev = current;
-				print_list(*list);
+				temp = behind->prev;
+				temp->next = current;
+				if (current->next)
+					current->next->prev = behind;
+				behind->next = current->next;
+				current->next = behind;
+				behind->prev = current;
+				current->prev = temp;
+				behind = temp;
 			}
-			prev = prev->prev;
+			else
+			{
+				temp = NULL;
+				current->next->prev = behind;
+				behind->next = current->next;
+				behind->prev = current;
+				current->next = behind;
+				current->prev = NULL;
+				behind = temp;
+				*list = current;
+			}
+			print_list(*list);
 		}
 		current = current->next;
 	}
