@@ -17,11 +17,10 @@ typedef struct listint_s
 } listint_t;
 
 
-int partition (int arr[], int start, int end, size_t size);
+int partition(int arr[], int start, int end, size_t size);
 void quick_Sort(int *array, int start, int end, size_t size);
 
 
-void lomuto(int *arr, size_t low, size_t high, int count);
 void quick_sort(int *array, size_t size);
 void selection_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);

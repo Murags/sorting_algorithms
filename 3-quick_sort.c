@@ -14,7 +14,7 @@ void quick_sort(int *array, size_t size)
 }
 
 /**
- * quicksort - implementation of quicksort algorithm
+ * quick_Sort - implementation of quicksort algorithm
  *
  * @array: array to sort
  * @start: start of array
@@ -34,7 +34,7 @@ void quick_Sort(int *array, int start, int end, size_t size)
 }
 
 /**
- * partition_array - function that divides array into two
+ * partition - function that divides array into two
  *
  * @array: array to partition
  * @start: starting point of the array
